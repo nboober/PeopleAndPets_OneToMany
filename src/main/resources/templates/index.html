@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div th:each="pet : ${pets}">
+        <h2 th:text="${pet.name}"></h2>
+        <h6 th:inline="text">AGE: [[${pet.age}]]</h6>
+        <h6 th:inline="text">Animal: [[${pet.animal}]]</h6>
+        <h4>Owned By: </h4>
+        <ul>
+            <th:block th:each="person : ${pet.people}">
+                <h5 th:text="${person.name}"></h5>
+                <h6 th:inline="text">Age: [[${person.age}]]</h6>
+            </th:block>
+        </ul>
+    </div>
+
+</body>
+</html>
